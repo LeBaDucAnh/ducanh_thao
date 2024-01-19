@@ -5,6 +5,7 @@ import DefaultLayout from './layouts/DefaultLayout'
 import ProductDetail from './pages/ProductDetail';
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Cart from './pages/Cart';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     { path: '/home', component: Home, layout: DefaultLayout },
     { path: '/products', component: ProductList, layout: DefaultLayout},
     { path: '/product', component: ProductDetail, layout: DefaultLayout},
+    { path: '/cart', component: Cart, layout: DefaultLayout},
   ];
 
 
