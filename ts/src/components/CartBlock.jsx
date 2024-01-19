@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {DeleteFilled} from '@ant-design/icons'
+import { CartContext } from '../context/CartContext'
 
 export default function CartBlock({ children }) {
+
+    const {cart, dispatch} = useContext(CartContext)
+    const [cartList, setCartList] = useState([])
+
+    useEffect(()=>{
+        setCartList(JSON.parse('['+cart+']'));
+        console.log(JSON.parse('['+cart+']'));
+    },[])
+
     return (
         <div class="site__body">
             <div class="page-header">
@@ -40,17 +50,18 @@ export default function CartBlock({ children }) {
                             </tr>
                         </thead>
                         <tbody class="cart-table__body">
-                            <tr class="cart-table__row">
+                            {cartList? cartList.map((prd)=>{
+                                return <><tr class="cart-table__row">
                                 <td class="cart-table__column cart-table__column--image"><a href="#"><img
                                     src="images/products/product-1.jpg" alt="" /></a></td>
                                 <td class="cart-table__column cart-table__column--product"><a href="#"
-                                    class="cart-table__product-name">Electric Planer Brandix KL370090G 300 Watts</a>
+                                    class="cart-table__product-name">{prd.name}</a>
                                     <ul class="cart-table__options">
                                         <li>Color: Yellow</li>
                                         <li>Material: Aluminium</li>
                                     </ul>
                                 </td>
-                                <td class="cart-table__column cart-table__column--price" data-title="Price">$699.00</td>
+                                <td class="cart-table__column cart-table__column--price" data-title="Price">{prd.price}</td>
                                 <td class="cart-table__column cart-table__column--quantity" data-title="Quantity">
                                     <div class="input-number"><input class="form-control input-number__input"
                                         type="number" min="1" value="2" />
@@ -62,7 +73,8 @@ export default function CartBlock({ children }) {
                                 </td>
                                 <td class="cart-table__column cart-table__column--remove"><button type="button"
                                     class="btn btn-light btn-sm btn-svg-icon"><DeleteFilled style={{fontSize: '24px', color: 'red'}} /></button></td>
-                            </tr>
+                            </tr></>
+                            }):""}
                         </tbody>
                     </table>
                     <div class="row justify-content-end pt-5">

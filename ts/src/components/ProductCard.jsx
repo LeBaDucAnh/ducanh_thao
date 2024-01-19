@@ -1,6 +1,12 @@
-import React from "react";
+import React, {useContext} from "react";
+import { CartContext } from "../context/CartContext";
+
+
 
 export default function ProductCard({ product }) {
+
+    const {cart, dispatch} = useContext(CartContext)
+
     return (
         <div className="block-products__list-item">
             <div className="product-card"><button className="product-card__quickview" type="button"><svg
@@ -123,22 +129,12 @@ export default function ProductCard({ product }) {
                     <div className="product-card__availability">Availability: <span
                         className="text-success">In Stock</span></div>
                     <div className="product-card__prices">$1,019.00</div>
-                    <div className="product-card__buttons"><button
+                    <div className="product-card__buttons"><button onClick={()=>dispatch({
+                        action: "ADD_TO_CART",
+                        data: JSON.stringify(product)
+                    })}
                         className="btn btn-primary product-card__addtocart" type="button">Add To
-                        Cart</button> <button
-                            className="btn btn-secondary product-card__addtocart product-card__addtocart--list"
-                            type="button">Add To Cart</button> <button
-                                className="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist"
-                                type="button"><svg width="16px" height="16px">
-                                <use xlink:href="images/sprite.svg#wishlist-16"></use>
-                            </svg> <span
-                                className="fake-svg-icon fake-svg-icon--wishlist-16"></span></button>
-                        <button
-                            className="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare"
-                            type="button"><svg width="16px" height="16px">
-                                <use xlink:href="images/sprite.svg#compare-16"></use>
-                            </svg> <span
-                                className="fake-svg-icon fake-svg-icon--compare-16"></span></button>
+                        Cart</button> 
                     </div>
                 </div>
             </div>

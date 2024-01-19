@@ -7,6 +7,7 @@ import ProductDetail from './pages/ProductDetail';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Cart from './pages/Cart';
 import { ProductProvider } from './context/ProductContext';
+import { CartProvider } from './context/CartContext';
 
 function App() {
 
@@ -21,19 +22,21 @@ function App() {
 
   return (
     <ProductProvider>
-      <BrowserRouter>
-        <Routes>
-          {publicRoutes.map((route, index) => {
-            const Page = route.component;
-            let Layout = DefaultLayout;
-            if (route.layout) Layout = route.layout;
-            else if (route.layout === null) Layout = Fragment;
-            return (
-              <Route key={index} path={route.path} element={<Layout ><Page /> </Layout>} />
-            );
-          })}
-        </Routes>
-      </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <Routes>
+            {publicRoutes.map((route, index) => {
+              const Page = route.component;
+              let Layout = DefaultLayout;
+              if (route.layout) Layout = route.layout;
+              else if (route.layout === null) Layout = Fragment;
+              return (
+                <Route key={index} path={route.path} element={<Layout ><Page /> </Layout>} />
+              );
+            })}
+          </Routes>
+        </BrowserRouter>
+      </CartProvider>
     </ProductProvider>
   )
 }
