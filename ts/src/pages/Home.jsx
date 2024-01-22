@@ -4,6 +4,7 @@ import Slideshow from '../components/Slideshow'
 import { Rating } from 'react-simple-star-rating'
 import ProductCard from '../components/ProductCard'
 import { ProductContext } from '../context/ProductContext'
+import ProductList from '../components/ProductList'
 
 
 function Home() {
@@ -357,6 +358,7 @@ function Home() {
                     </div>
                 </div>
             </div>
+            <ProductList/>
         </>
     )
 }

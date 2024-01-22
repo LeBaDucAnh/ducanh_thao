@@ -1,18 +1,69 @@
 import React from 'react'
-import { ShoppingCartOutlined, SearchOutlined } from '@ant-design/icons'
+import { ShoppingCartOutlined, SearchOutlined, MenuOutlined, CloseOutlined, CaretDownOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
+
 
 function Header() {
   return (
     <div>
+      <div className="mobilemenu">
+        <div className="mobilemenu__backdrop"></div>
+        <div className="mobilemenu__body">
+            <div className="mobilemenu__header">
+                <div className="mobilemenu__title">Menu</div>
+                <button type="button" className="mobilemenu__close">
+                <CloseOutlined />
+                </button>
+            </div>
+            <div className="mobilemenu__content">
+                <ul className="mobile-links mobile-links--level--0" data-collapse
+                    data-collapse-opened-class="mobile-links__item--open">
+                    <li className="mobile-links__item" data-collapse-item>
+                        <div className="mobile-links__item-title">
+                            <a href="index.html" className="mobile-links__item-link">Danh mục</a> <button
+                                className="mobile-links__item-toggle" type="button" data-collapse-trigger>
+                                  <CaretDownOutlined />
+                                </button>
+                        </div>
+                        <div className="mobile-links__item-sub-links" data-collapse-content>
+                            <ul className="mobile-links mobile-links--level--1">
+                                <li className="mobile-links__item" data-collapse-item>
+                                    <div className="mobile-links__item-title"><a href="index.html"
+                                            className="mobile-links__item-link">Home 1</a></div>
+                                </li>
+                                <li className="mobile-links__item" data-collapse-item>
+                                    <div className="mobile-links__item-title"><a href="index-2.html"
+                                            className="mobile-links__item-link">Home 2</a></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li className="mobile-links__item" data-collapse-item>
+                        <div className="mobile-links__item-title"><a href="#" className="mobile-links__item-link">Sản phẩm</a>
+                            <button className="mobile-links__item-toggle" type="button" data-collapse-trigger>
+                                </button>
+                        </div>
+                    </li>
+                    <li className="mobile-links__item" data-collapse-item>
+                        <div className="mobile-links__item-title"><a href="shop-grid-3-columns-sidebar.html"
+                                className="mobile-links__item-link">Liên hệ</a> <button className="mobile-links__item-toggle"
+                                type="button" data-collapse-trigger>
+                                </button></div>
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
       <header className="site__header d-lg-none">
         <div className="mobile-header mobile-header--sticky mobile-header--stuck">
           <div className="mobile-header__panel">
             <div className="container">
-              <div className="mobile-header__body"><button className="mobile-header__menu-button"><svg width="18px"
-                height="14px">
-                <use clasxlinkHref="images/sprite.svg#menu-18x14"></use>
-              </svg></button> <a className="mobile-header__logo" href="index.html"><svg
+              <div className="mobile-header__body">
+                <button className="mobile-header__menu-button">
+              <MenuOutlined />
+              </button> 
+              <a className="mobile-header__logo" href="index.html"><svg
                 xmlns="http://www.w3.org/2000/svg" width="120px" height="20px">
                 <path d="M118.5,20h-1.1c-0.6,0-1.2-0.4-1.4-1l-1.5-4h-6.1l-1.5,4c-0.2,0.6-0.8,1-1.4,1h-1.1c-1,0-1.8-1-1.4-2l1.1-3
                                  l1.5-4l3.6-10c0.2-0.6,0.8-1,1.4-1h1.6c0.6,0,1.2,0.4,1.4,1l3.6,10l1.5,4l1.1,3C120.3,19,119.5,20,118.5,20z M111.5,6.6l-1.6,4.4
@@ -32,16 +83,36 @@ function Header() {
                                  c-0.4,0.7-1.2,1-1.8,0.6c-0.6-0.3-1.2-0.7-1.6-1.2C0.6,8.9,0,7.5,0,6c0-3.3,2.9-6,6.5-6c2.8,0,5.5,1.7,6.4,4C13.3,4.9,12.6,6,11.6,6
                                  z"></path>
               </svg></a>
-
+              <div className="mobile-header__search">
+                                <form className="mobile-header__search-form" action="#"><input
+                                        className="mobile-header__search-input" name="search"
+                                        placeholder="Tìm kiếm sản phẩm" aria-label="Site search" type="text"
+                                        autoComplete="off"/> <button
+                                        className="mobile-header__search-button mobile-header__search-button--submit"
+                                        type="submit">
+                                          <SearchOutlined/>
+                                        </button> <button
+                                        className="mobile-header__search-button mobile-header__search-button--close"
+                                        type="button">
+                                         <CloseOutlined/></button>
+                                    <div className="mobile-header__search-body"></div>
+                                </form>
+                            </div>
                 <div className="mobile-header__indicators">
                   <div className="indicator indicator--mobile-search indicator--mobile d-sm-none"><button
                     className="indicator__button"><span className="indicator__area">
                       <SearchOutlined />
                     </span></button></div>
-                  <div className="indicator indicator--mobile"><a href="cart.html"
+                  <div className="indicator indicator--mobile">
+                    {/* <a href="cart.html"
                     className="indicator__button"><span className="indicator__area">
                       <ShoppingCartOutlined />
-                      <span className="indicator__value">3</span></span></a></div>
+                      <span className="indicator__value">3</span></span></a> */}
+                      <Link to="/cart" className="indicator__button"><span className="indicator__area">
+                        <ShoppingCartOutlined style={{ fontSize: '30px' }} />
+                        <span className="indicator__value">3</span></span>
+                      </Link>
+                    </div>
                 </div>
               </div>
             </div>
@@ -50,91 +121,7 @@ function Header() {
       </header>
       <header className="site__header d-lg-block d-none">
         <div className="site-header">
-          {/* <div className="site-header__topbar topbar">
-              <div className="topbar__container container">
-                <div className="topbar__row">
-                  <div className="topbar__item topbar__item--link"><a className="topbar-link"
-                    href="about-us.html">About Us</a></div>
-                  <div className="topbar__item topbar__item--link"><a className="topbar-link"
-                    href="contact-us.html">Contacts</a></div>
-                  <div className="topbar__item topbar__item--link"><a className="topbar-link" href="#">Store
-                    Location</a></div>
-                  <div className="topbar__item topbar__item--link"><a className="topbar-link"
-                    href="track-order.html">Track Order</a></div>
-                  <div className="topbar__item topbar__item--link"><a className="topbar-link"
-                    href="blog-classic.html">Blog</a></div>
-                  <div className="topbar__spring"></div>
-                  <div className="topbar__item">
-                    <div className="topbar-dropdown"><button className="topbar-dropdown__btn" type="button">My
-                      Account <svg width="7px" height="5px">
-                        <use clasxlinkHref="images/sprite.svg#arrow-rounded-down-7x5"></use>
-                      </svg></button>
-                      <div className="topbar-dropdown__body">
-                        <ul className="menu menu--layout--topbar">
-                          <li><a href="account.html">Login</a></li>
-                          <li><a href="account.html">Register</a></li>
-                          <li><a href="#">Orders</a></li>
-                          <li><a href="#">Addresses</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="topbar__item">
-                    <div className="topbar-dropdown"><button className="topbar-dropdown__btn"
-                      type="button">Currency: <span className="topbar__item-value">USD</span> <svg
-                        width="7px" height="5px">
-                        <use clasxlinkHref="images/sprite.svg#arrow-rounded-down-7x5"></use>
-                      </svg></button>
-                      <div className="topbar-dropdown__body">
-                        <ul className="menu menu--layout--topbar">
-                          <li><a href="#">€ Euro</a></li>
-                          <li><a href="#">£ Pound Sterling</a></li>
-                          <li><a href="#">$ US Dollar</a></li>
-                          <li><a href="#">₽ Russian Ruble</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="topbar__item">
-                    <div className="topbar-dropdown"><button className="topbar-dropdown__btn"
-                      type="button">Language: <span className="topbar__item-value">EN</span> <svg
-                        width="7px" height="5px">
-                        <use clasxlinkHref="images/sprite.svg#arrow-rounded-down-7x5"></use>
-                      </svg></button>
-                      <div className="topbar-dropdown__body">
-                        <ul className="menu menu--layout--topbar menu--with-icons">
-                          <li><a href="#">
-                            <div className="menu__icon"><img
-                              srcSet="images/languages/language-1.png, images/languages/language-1@2x.png 2x"
-                              src="images/languages/language-1.png" alt=""/></div>English
-                          </a></li>
-                          <li><a href="#">
-                            <div className="menu__icon"><img
-                              srcSet="images/languages/language-2.png, images/languages/language-2@2x.png 2x"
-                              src="images/languages/language-2.png" alt=""/></div>French
-                          </a></li>
-                          <li><a href="#">
-                            <div className="menu__icon"><img
-                              srcSet="images/languages/language-3.png, images/languages/language-3@2x.png 2x"
-                              src="images/languages/language-3.png" alt=""/></div>German
-                          </a></li>
-                          <li><a href="#">
-                            <div className="menu__icon"><img
-                              srcSet="images/languages/language-4.png, images/languages/language-4@2x.png 2x"
-                              src="images/languages/language-4.png" alt=""/></div>Russian
-                          </a></li>
-                          <li><a href="#">
-                            <div className="menu__icon"><img
-                              srcSet="images/languages/language-5.png, images/languages/language-5@2x.png 2x"
-                              src="images/languages/language-5.png" alt=""/></div>Italian
-                          </a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> */}
+          
           <div className="site-header__middle container">
             <div className="site-header__logo"><Link to="/"><svg xmlns="http://www.w3.org/2000/svg"
               width="196px" height="26px">
@@ -145,7 +132,7 @@ function Header() {
             <div className="site-header__search">
               <div className="search">
                 <form className="search__form" action="#"><input className="search__input" name="search"
-                  placeholder="Search over 10,000 products" aria-label="Site search" type="text"
+                  placeholder="Tìm kiếm sản phẩm" aria-label="Site search" type="text"
                   autoComplete="off" /> <button className="search__button" type="submit">
                     <SearchOutlined />
                   </button>
@@ -166,32 +153,17 @@ function Header() {
                   <div className="nav-panel__nav-links nav-links">
                     <ul className="nav-links__list">
                       <li className="nav-links__item nav-links__item--with-submenu"><Link
-                        to="/"><span>Trang chủ <svg className="nav-links__arrow" width="9px"
-                          height="6px">
-                          <use clasxlinkHref="images/sprite.svg#arrow-rounded-down-9x6">
-                          </use>
-                        </svg></span></Link>
-                        {/* <div className="nav-links__menu">
-                            <ul className="menu menu--layout--classic">
-                              <li><a href="index.html">Home 1</a></li>
-                              <li><a href="index-2.html">Home 2</a></li>
-                            </ul>
-                          </div> */}
+                        to="/"><span>Trang chủ 
+
+                        </span></Link>
                       </li>
                       <li className="nav-links__item nav-links__item--with-submenu"><a
-                        href="shop-grid-3-columns-sidebar.html"><span>Danh mục <svg
-                          className="nav-links__arrow" width="9px" height="6px">
-                          <use clasxlinkHref="images/sprite.svg#arrow-rounded-down-9x6">
-                          </use>
-                        </svg></span></a>
+                        href="shop-grid-3-columns-sidebar.html"><span>Danh mục 
+                        </span></a>
                         <div className="nav-links__menu">
                           <ul className="menu menu--layout--classic">
-                            <li><a href="shop-grid-3-columns-sidebar.html">Shop Grid <svg
-                              className="menu__arrow" width="6px" height="9px">
-                              <use
-                                clasxlinkHref="images/sprite.svg#arrow-rounded-right-6x9">
-                              </use>
-                            </svg></a>
+                            <li><a href="shop-grid-3-columns-sidebar.html">Shop Grid 
+                            </a>
                               <div className="menu__submenu">
                                 <ul className="menu menu--layout--classic">
                                   <li><a href="shop-grid-3-columns-sidebar.html">3 Columns
@@ -205,12 +177,8 @@ function Header() {
                             </li>
                             <li><a href="shop-list.html">Shop List</a></li>
                             <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
-                            <li><a href="product.html">Product <svg className="menu__arrow"
-                              width="6px" height="9px">
-                              <use
-                                clasxlinkHref="images/sprite.svg#arrow-rounded-right-6x9">
-                              </use>
-                            </svg></a>
+                            <li><a href="product.html">Product 
+                            </a>
                               <div className="menu__submenu">
                                 <ul className="menu menu--layout--classic">
                                   <li><a href="product.html">Product</a></li>
@@ -230,231 +198,19 @@ function Header() {
                         </div>
                       </li>
                       <li className="nav-links__item nav-links__item--with-submenu"><a
-                        href="#"><span>Sản phẩm <svg className="nav-links__arrow" width="9px"
-                          height="6px">
-                          <use clasxlinkHref="images/sprite.svg#arrow-rounded-down-9x6">
-                          </use>
-                        </svg></span></a>
-                        {/* <div className="nav-links__megamenu nav-links__megamenu--size--nl">
-
-                            <div className="megamenu">
-                              <div className="row">
-                                <div className="col-6">
-                                  <ul className="megamenu__links megamenu__links--level--0">
-                                    <li className="megamenu__item megamenu__item--with-submenu">
-                                      <a href="#">Power Tools</a>
-                                      <ul
-                                        className="megamenu__links megamenu__links--level--1">
-                                        <li className="megamenu__item"><a
-                                          href="#">Engravers</a></li>
-                                        <li className="megamenu__item"><a
-                                          href="#">Wrenches</a></li>
-                                        <li className="megamenu__item"><a href="#">Wall
-                                          Chaser</a></li>
-                                        <li className="megamenu__item"><a href="#">Pneumatic
-                                          Tools</a></li>
-                                      </ul>
-                                    </li>
-                                    <li className="megamenu__item megamenu__item--with-submenu">
-                                      <a href="#">Machine Tools</a>
-                                      <ul
-                                        className="megamenu__links megamenu__links--level--1">
-                                        <li className="megamenu__item"><a href="#">Thread
-                                          Cutting</a></li>
-                                        <li className="megamenu__item"><a href="#">Chip
-                                          Blowers</a></li>
-                                        <li className="megamenu__item"><a
-                                          href="#">Sharpening Machines</a></li>
-                                        <li className="megamenu__item"><a href="#">Pipe
-                                          Cutters</a></li>
-                                        <li className="megamenu__item"><a href="#">Slotting
-                                          machines</a></li>
-                                        <li className="megamenu__item"><a
-                                          href="#">Lathes</a></li>
-                                      </ul>
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div className="col-6">
-                                  <ul className="megamenu__links megamenu__links--level--0">
-                                    <li className="megamenu__item megamenu__item--with-submenu">
-                                      <a href="#">Hand Tools</a>
-                                      <ul
-                                        className="megamenu__links megamenu__links--level--1">
-                                        <li className="megamenu__item"><a
-                                          href="#">Screwdrivers</a></li>
-                                        <li className="megamenu__item"><a
-                                          href="#">Handsaws</a></li>
-                                        <li className="megamenu__item"><a
-                                          href="#">Knives</a></li>
-                                        <li className="megamenu__item"><a href="#">Axes</a>
-                                        </li>
-                                        <li className="megamenu__item"><a
-                                          href="#">Multitools</a></li>
-                                        <li className="megamenu__item"><a href="#">Paint
-                                          Tools</a></li>
-                                      </ul>
-                                    </li>
-                                    <li className="megamenu__item megamenu__item--with-submenu">
-                                      <a href="#">Garden Equipment</a>
-                                      <ul
-                                        className="megamenu__links megamenu__links--level--1">
-                                        <li className="megamenu__item"><a href="#">Motor
-                                          Pumps</a></li>
-                                        <li className="megamenu__item"><a
-                                          href="#">Chainsaws</a></li>
-                                        <li className="megamenu__item"><a href="#">Electric
-                                          Saws</a></li>
-                                        <li className="megamenu__item"><a href="#">Br/ush
-                                          Cutters</a></li>
-                                      </ul>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                          </div> */}
+                        href="#"><span>Sản phẩm 
+                        </span></a>
                       </li>
-
-                      {/* <li className="nav-links__item nav-links__item--with-submenu"><a
-                          href="blog-classic.html"><span>Blog <svg className="nav-links__arrow"
-                            width="9px" height="6px">
-                            <use clasxlinkHref="images/sprite.svg#arrow-rounded-down-9x6">
-                            </use>
-                          </svg></span></a>
-                          <div className="nav-links__menu">
-                            <ul className="menu menu--layout--classic">
-                              <li><a href="blog-classic.html">Blog Classic</a></li>
-                              <li><a href="blog-grid.html">Blog Grid</a></li>
-                              <li><a href="blog-list.html">Blog List</a></li>
-                              <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                              <li><a href="post.html">Post Page</a></li>
-                              <li><a href="post-without-sidebar.html">Post Without Sidebar</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </li> */}
-                      {/* <li className="nav-links__item nav-links__item--with-submenu"><a
-                          href="#"><span>Pages <svg className="nav-links__arrow" width="9px"
-                            height="6px">
-                            <use clasxlinkHref="images/sprite.svg#arrow-rounded-down-9x6">
-                            </use>
-                          </svg></span></a>
-                          <div className="nav-links__menu">
-                            <ul className="menu menu--layout--classic">
-                              <li><a href="about-us.html">About Us</a></li>
-                              <li><a href="contact-us.html">Contact Us</a></li>
-                              <li><a href="contact-us-alt.html">Contact Us Alt</a></li>
-                              <li><a href="404.html">404</a></li>
-                              <li><a href="terms-and-conditions.html">Terms And Conditions</a>
-                              </li>
-                              <li><a href="faq.html">FAQ</a></li>
-                              <li><a href="components.html">Components</a></li>
-                              <li><a href="typography.html">Typography</a></li>
-                            </ul>
-                          </div>
-                        </li> */}
                       <li className="nav-links__item"><a href="contact-us.html"><span>Liên hệ</span></a></li>
                     </ul>
                   </div>
                   <div className="nav-panel__indicators">
-                    {/* <div className="indicator"><a href="wishlist.html" className="indicator__button"><span
-                        className="indicator__area"><svg width="20px" height="20px">
-                          <use clasxlinkHref="images/sprite.svg#heart-20"></use>
-                        </svg> <span className="indicator__value">0</span></span></a></div> */}
+                    
                     <div className="">
                       <Link to="/cart" className="indicator__button"><span className="indicator__area">
                         <ShoppingCartOutlined style={{ fontSize: '30px' }} />
                         <span className="indicator__value">3</span></span>
                       </Link>
-                      {/* <div className="indicator__dropdown">
-                          <div className="dropcart">
-                            <div className="dropcart__products-list">
-                              <div className="dropcart__product">
-                                <div className="dropcart__product-image"><a href="product.html"><img
-                                  src="images/products/product-1.jpg" alt=""/></a>
-                                </div>
-                                <div className="dropcart__product-info">
-                                  <div className="dropcart__product-name"><a
-                                    href="product.html">Electric Planer Br/andix
-                                    KL370090G 300 Watts</a></div>
-                                  <ul className="dropcart__product-options">
-                                    <li>Color: Yellow</li>
-                                    <li>Material: Aluminium</li>
-                                  </ul>
-                                  <div className="dropcart__product-meta"><span
-                                    className="dropcart__product-quantity">2</span> x <span
-                                      className="dropcart__product-price">$699.00</span></div>
-                                </div><button type="button"
-                                  className="dropcart__product-remove btn btn-light btn-sm btn-svg-icon"><svg
-                                    width="10px" height="10px">
-                                    <use clasxlinkHref="images/sprite.svg#cross-10"></use>
-                                  </svg></button>
-                              </div>
-                              <div className="dropcart__product">
-                                <div className="dropcart__product-image"><a href="product.html"><img
-                                  src="images/products/product-2.jpg" alt=""/></a>
-                                </div>
-                                <div className="dropcart__product-info">
-                                  <div className="dropcart__product-name"><a
-                                    href="product.html">Undefined Tool IRadix DPS3000SY
-                                    2700 watts</a></div>
-                                  <div className="dropcart__product-meta"><span
-                                    className="dropcart__product-quantity">1</span> x <span
-                                      className="dropcart__product-price">$849.00</span></div>
-                                </div><button type="button"
-                                  className="dropcart__product-remove btn btn-light btn-sm btn-svg-icon"><svg
-                                    width="10px" height="10px">
-                                    <use clasxlinkHref="images/sprite.svg#cross-10"></use>
-                                  </svg></button>
-                              </div>
-                              <div className="dropcart__product">
-                                <div className="dropcart__product-image"><a href="product.html"><img
-                                  src="images/products/product-5.jpg" alt=""/></a>
-                                </div>
-                                <div className="dropcart__product-info">
-                                  <div className="dropcart__product-name"><a
-                                    href="product.html">Br/andix Router Power Tool
-                                    2017ERXPK</a></div>
-                                  <ul className="dropcart__product-options">
-                                    <li>Color: True Red</li>
-                                  </ul>
-                                  <div className="dropcart__product-meta"><span
-                                    className="dropcart__product-quantity">3</span> x <span
-                                      className="dropcart__product-price">$1,210.00</span>
-                                  </div>
-                                </div><button type="button"
-                                  className="dropcart__product-remove btn btn-light btn-sm btn-svg-icon"><svg
-                                    width="10px" height="10px">
-                                    <use clasxlinkHref="images/sprite.svg#cross-10"></use>
-                                  </svg></button>
-                              </div>
-                            </div>
-                            <div className="dropcart__totals">
-                              <table>
-                                <tr>
-                                  <th>Subtotal</th>
-                                  <td>$5,877.00</td>
-                                </tr>
-                                <tr>
-                                  <th>Shipping</th>
-                                  <td>$25.00</td>
-                                </tr>
-                                <tr>
-                                  <th>Tax</th>
-                                  <td>$0.00</td>
-                                </tr>
-                                <tr>
-                                  <th>Total</th>
-                                  <td>$5,902.00</td>
-                                </tr>
-                              </table>
-                            </div>
-                            <div className="dropcart__buttons"><a className="btn btn-secondary"
-                              href="cart.html">View Cart</a> <a className="btn btn-primary"
-                                href="checkout.html">Checkout</a></div>
-                          </div>
-                        </div> */}
                     </div>
                   </div>
                 </div>

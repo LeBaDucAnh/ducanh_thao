@@ -11,7 +11,7 @@ function Footer() {
                 <div className="row">
                   <div className="col-12 col-md-6 col-lg-4">
                     <div className="site-footer__widget footer-contacts">
-                      <h5 className="footer-contacts__title">Liên hệ</h5>
+                      {/* <h5 className="footer-contacts__title">Liên hệ</h5> */}
                       {/* <div className="footer-contacts__text">Lorem ipsum dolor sit amet, consectetur
                         adipiscing elit. Integer in feugiat lorem. Pellentque ac placerat tellus.</div> */}
                       <ul className="footer-contacts__contacts">
@@ -33,8 +33,8 @@ function Footer() {
                         <li className="footer-links__item"><a href="#" className="footer-links__link">Về chúng tôi</a></li>
                         <li className="footer-links__item"><a href="#" className="footer-links__link">Thông tin vận chuyển</a></li>
                         <li className="footer-links__item"><a href="#" className="footer-links__link">Chính sách bảo mật</a></li>
-                        <li className="footer-links__item"><a href="#" className="footer-links__link">Nhãn hàng</a>
-                        </li>
+                        {/* <li className="footer-links__item"><a href="#" className="footer-links__link">Nhãn hàng</a>
+                        </li> */}
                         {/* <li className="footer-links__item"><a href="#" className="footer-links__link">Contact
                           Us</a></li> */}
                         <li className="footer-links__item"><a href="#"
@@ -44,7 +44,7 @@ function Footer() {
                       </ul>
                     </div>
                   </div>
-                  {/* <div className="col-6 col-md-3 col-lg-2">
+                  <div className="col-6 col-md-3 col-lg-2">
                     <div className="site-footer__widget footer-links">
                       <h5 className="footer-links__title">My Account</h5>
                       <ul className="footer-links__list">
@@ -64,42 +64,8 @@ function Footer() {
                           className="footer-links__link">Affiliate</a></li>
                       </ul>
                     </div>
-                  </div> */}
-                  <div className="col-12 col-md-12 col-lg-4">
-                    <div className="site-footer__widget footer-newsletter">
-                      {/* <h5 className="footer-newsletter__title">Newsletter</h5>
-                      <div className="footer-newsletter__text">Praesent pellentesque volutpat ex, vitae auctor
-                        lorem pulvinar mollis felis at lacinia.</div>
-                      <form action="#" className="footer-newsletter__form"><label className="sr-only"
-                        htmlFor="footer-newsletter-address">Email Address</label> <input type="text"
-                          className="footer-newsletter__form-input form-control"
-                          id="footer-newsletter-address" placeholder="Email Address..."/> <button
-                            className="footer-newsletter__form-button btn btn-primary">Subscribe</button>
-                      </form> */}
-                      <div className="footer-newsletter__text footer-newsletter__text--social">Liên hệ chúng tôi</div>
-                      <ul className="footer-newsletter__social-links">
-                        <li
-                          className="footer-newsletter__social-link footer-newsletter__social-link--facebook">
-                          <a href="https://themeforest.net/user/kos9" target="_blank"><i
-                            className="fab fa-facebook-f"></i></a></li>
-                        <li
-                          className="footer-newsletter__social-link footer-newsletter__social-link--twitter">
-                          <a href="https://themeforest.net/user/kos9" target="_blank"><i
-                            className="fab fa-twitter"></i></a></li>
-                        <li
-                          className="footer-newsletter__social-link footer-newsletter__social-link--youtube">
-                          <a href="https://themeforest.net/user/kos9" target="_blank"><i
-                            className="fab fa-youtube"></i></a></li>
-                        <li
-                          className="footer-newsletter__social-link footer-newsletter__social-link--instagram">
-                          <a href="https://themeforest.net/user/kos9" target="_blank"><i
-                            className="fab fa-instagram"></i></a></li>
-                        <li className="footer-newsletter__social-link footer-newsletter__social-link--rss">
-                          <a href="https://themeforest.net/user/kos9" target="_blank"><i
-                            className="fas fa-rss"></i></a></li>
-                      </ul>
-                    </div>
                   </div>
+                  
                 </div>
               </div>
               {/* <div className="site-footer__bottom">

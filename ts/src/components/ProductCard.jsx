@@ -1,18 +1,21 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import { CartContext } from "../context/CartContext";
-
+import { Rating } from 'react-simple-star-rating'
 
 
 export default function ProductCard({ product }) {
 
     const {cart, dispatch} = useContext(CartContext)
+    const [rating, setRating] = useState(0)
+
+    // Catch Rating value
+    const handleRating = (rate) => {
+        setRating(rate)
+    }
 
     return (
         <div className="block-products__list-item">
-            <div className="product-card"><button className="product-card__quickview" type="button"><svg
-                width="16px" height="16px">
-                <use xlink:href="images/sprite.svg#quickview-16"></use>
-            </svg> <span className="fake-svg-icon"></span></button>
+            <div className="product-card">
                 <div className="product-card__badges-list">
                     <div className="product-card__badge product-card__badge--hot">Hot</div>
                 </div>
@@ -21,7 +24,7 @@ export default function ProductCard({ product }) {
                 <div className="product-card__info">
                     <div className="product-card__name"><a href="product.html">{product.name}</a></div>
                     <div className="product-card__rating">
-                        <div className="rating">
+                        {/* <div className="rating">
                             <div className="rating__body"><svg className="rating__star rating__star--active"
                                 width="13px" height="12px">
                                 <g className="rating__fill">
@@ -114,20 +117,26 @@ export default function ProductCard({ product }) {
                                     </div>
                                 </div>
                             </div>
+                        </div> */}
+                        <div>
+                        <Rating
+                                        onClick={handleRating}
+                                        initialValue={5}
+                                        size={20}/>
                         </div>
-                        <div className="product-card__rating-legend">11 Reviews</div>
+                        {/* <div className="product-card__rating-legend">11 Reviews</div> */}
                     </div>
-                    <ul className="product-card__features-list">
+                    {/* <ul className="product-card__features-list">
                         <li>Speed: 750 RPM</li>
                         <li>Power Source: Cordless-Electric</li>
                         <li>Battery Cell Type: Lithium</li>
                         <li>Voltage: 20 Volts</li>
                         <li>Battery Capacity: 2 Ah</li>
-                    </ul>
+                    </ul> */}
                 </div>
                 <div className="product-card__actions">
-                    <div className="product-card__availability">Availability: <span
-                        className="text-success">In Stock</span></div>
+                    {/* <div className="product-card__availability">Availability: <span
+                        className="text-success">In Stock</span></div> */}
                     <div className="product-card__prices">$1,019.00</div>
                     <div className="product-card__buttons"><button onClick={()=>dispatch({
                         action: "ADD_TO_CART",

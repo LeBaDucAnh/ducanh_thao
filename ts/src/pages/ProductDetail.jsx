@@ -180,9 +180,7 @@ export default function ProductDetail() {
                                     <li><Rating
                                         onClick={handleRating}
                                         initialValue={5}
-                                        size={20}
-
-                                    /></li>
+                                        size={20}/></li>
                                 </ul>
                             </div>
                             <div className="product__sidebar">
