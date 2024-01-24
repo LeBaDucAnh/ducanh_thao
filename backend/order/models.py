@@ -5,6 +5,7 @@ from product.models import Product
 # Create your models here.
 class Order(models.Model):
     id = models.AutoField(primary_key=True)
+    products = models.ManyToManyField(Product, through='OrderItem')
     transaction_id = models.ForeignKey(Transaction, on_delete=models.CASCADE, blank=True)
     quantity = models.IntegerField(blank=True)
     price = models.FloatField(blank=True)
@@ -13,20 +14,20 @@ class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def placeOrder(self):
-        self.save()
+    def __str__(self):
+        return self.id
 
-    @staticmethod
-    def get_orders_by_transaction(trans_id):
-        return Order.objects.filter(transaction_id=trans_id).values('id').first()
-
-class Order_detail(models.Model):
+class OrderItem(models.Model):
     id = models.AutoField(primary_key=True)
     order_id = models.ForeignKey(Order, on_delete=models.CASCADE, blank=True, related_name='order_detail')
-    product_id = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
     quantity = models.IntegerField(blank=True)
     sub_price = models.FloatField(blank=True)
     sale_price = models.FloatField(blank=True)
     total_price = models.FloatField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def save(self, *args, **kwargs):
+        self.subtotal = self.product.sale_price * self.quantity
+        super().save(*args, **kwargs)

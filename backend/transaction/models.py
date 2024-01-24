@@ -1,6 +1,7 @@
 from django.db import models
 # from bookstore.const import TRANS_STATUS
 from user.models import User
+from order.models import Order
 
 # Create your models here.
 
@@ -13,6 +14,7 @@ class Transaction(models.Model):
         ('COMPLETED','Thành công')
     ]
     id = models.AutoField(primary_key=True)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
     total_price = models.FloatField(blank=True)
     address = models.CharField(max_length=255, blank=True,null=True)
     status = models.CharField(choices=TRANS_STATUS, blank=True, max_length=20,null=True, default="PENDING")

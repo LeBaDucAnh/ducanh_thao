@@ -8,9 +8,9 @@ class ProductListCreateView(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
-    filterset_fields = ['id', 'name', 'created_at', 'sku']
-    search_fields = ['name', 'sku']
-    ordering_fields = ['id', 'name', 'created_at']
+    filterset_fields = ['id', 'name', 'created_at', 'sku', 'status', 'price']
+    search_fields = ['name', 'sku', 'status', 'price']
+    ordering_fields = ['id', 'name', 'created_at', 'price']
 
 class ProductRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
