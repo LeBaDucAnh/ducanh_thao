@@ -10,5 +10,18 @@
             "name": "product2",
             "price": 2000
         }
+    ],
+    "category": [
+        {
+            "id": 1,
+            "name": "Danh mục 1",
+            "description": "Dùng cho việc xem"
+        },
+        {
+            "id": 2,
+            "name": "Danh mục 2",
+            "description": "Dùng cho việc ghi"
+        }
     ]
+
 }
