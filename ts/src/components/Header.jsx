@@ -61,9 +61,9 @@ function Header() {
             <div className="container">
               <div className="mobile-header__body">
                 <button className="mobile-header__menu-button">
-              <MenuOutlined />
+              <MenuOutlined style={{color: "white"}}/>
               </button> 
-              <a className="mobile-header__logo" href="index.html"><svg
+              <Link to="/"><a className="mobile-header__logo" style={{color: "white"}}><svg
                 xmlns="http://www.w3.org/2000/svg" width="120px" height="20px">
                 <path d="M118.5,20h-1.1c-0.6,0-1.2-0.4-1.4-1l-1.5-4h-6.1l-1.5,4c-0.2,0.6-0.8,1-1.4,1h-1.1c-1,0-1.8-1-1.4-2l1.1-3
                                  l1.5-4l3.6-10c0.2-0.6,0.8-1,1.4-1h1.6c0.6,0,1.2,0.4,1.4,1l3.6,10l1.5,4l1.1,3C120.3,19,119.5,20,118.5,20z M111.5,6.6l-1.6,4.4
@@ -82,7 +82,7 @@ function Header() {
                                  C9.2,4.9,8.9,4.7,8.6,4.5C8.1,4.2,7.2,4,6.5,4C5,4,3.7,4.9,3.7,6c0,0.7,0.5,1.3,1.2,1.6C5.6,8,6,9,5.6,9.7l-0.4,0.9
                                  c-0.4,0.7-1.2,1-1.8,0.6c-0.6-0.3-1.2-0.7-1.6-1.2C0.6,8.9,0,7.5,0,6c0-3.3,2.9-6,6.5-6c2.8,0,5.5,1.7,6.4,4C13.3,4.9,12.6,6,11.6,6
                                  z"></path>
-              </svg></a>
+              </svg></a></Link>
               <div className="mobile-header__search">
                                 <form className="mobile-header__search-form" action="#"><input
                                         className="mobile-header__search-input" name="search"
@@ -141,7 +141,7 @@ function Header() {
               </div>
             </div>
             <div className="site-header__phone">
-              <div className="site-header__phone-title">Customer Service</div>
+              <div className="site-header__phone-title">Hotline</div>
               <div className="site-header__phone-number">(800) 060-0730</div>
             </div>
           </div>
@@ -197,9 +197,8 @@ function Header() {
                           </ul>
                         </div>
                       </li>
-                      <li className="nav-links__item nav-links__item--with-submenu"><a
-                        href="#"><span>Sản phẩm 
-                        </span></a>
+                      <li className="nav-links__item nav-links__item--with-submenu"><Link to="/products"><span>Sản phẩm 
+                        </span></Link>
                       </li>
                       <li className="nav-links__item"><a href="contact-us.html"><span>Liên hệ</span></a></li>
                     </ul>
