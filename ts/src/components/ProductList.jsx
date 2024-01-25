@@ -17,54 +17,11 @@ export default function ProductList(){
                     <div className="col-12">
                         <div className="block">
                             <div className="products-view">
-                                {/* <div className="products-view__options">
-                                    <div className="view-options">
-                                        <div className="view-options__layout">
-                                            <div className="layout-switcher">
-                                                <div className="layout-switcher__list"><button data-layout="grid-4-full"
-                                                        data-with-features="false" title="Grid" type="button"
-                                                        className="layout-switcher__button layout-switcher__button--active"><svg
-                                                            width="16px" height="16px">
-                                                            <use xlink:href="images/sprite.svg#layout-grid-16x16"></use>
-                                                        </svg></button> <button data-layout="grid-4-full"
-                                                        data-with-features="true" title="Grid With Features"
-                                                        type="button" className="layout-switcher__button"><svg width="16px"
-                                                            height="16px">
-                                                            <use
-                                                                xlink:href="images/sprite.svg#layout-grid-with-details-16x16">
-                                                            </use>
-                                                        </svg></button> <button data-layout="list"
-                                                        data-with-features="false" title="List" type="button"
-                                                        className="layout-switcher__button"><svg width="16px" height="16px">
-                                                            <use xlink:href="images/sprite.svg#layout-list-16x16"></use>
-                                                        </svg></button></div>
-                                            </div>
-                                        </div>
-                                        <div className="view-options__legend">Showing 6 of 98 products</div>
-                                        <div className="view-options__divider"></div>
-                                        <div className="view-options__control"><label for="">Sort By</label>
-                                            <div><select className="form-control form-control-sm" name="" id="">
-                                                    <option value="">Default</option>
-                                                    <option value="">Name (A-Z)</option>
-                                                </select></div>
-                                        </div>
-                                        <div className="view-options__control"><label for="">Show</label>
-                                            <div><select className="form-control form-control-sm" name="" id="">
-                                                    <option value="">12</option>
-                                                    <option value="">24</option>
-                                                </select></div>
-                                        </div>
-                                    </div>
-                                </div> */}
                                 <div className="products-view__list products-list" data-layout="grid-4-full"
                                     data-with-features="false">
                                     <div className="products-list__body">
                                         <div className="products-list__item">
                                             <div className="product-card">
-                                                {/* <button className="product-card__quickview"
-                                                    type="button"><svg width="16px" height="16px">
-                                                        <use xlink:href="images/sprite.svg#quickview-16"></use>
-                                                    </svg> <span className="fake-svg-icon"></span></button> */}
                                                 <div className="product-card__badges-list">
                                                     <div className="product-card__badge product-card__badge--new">New</div>
                                                 </div>
@@ -79,22 +36,21 @@ export default function ProductList(){
                                                             <Rating
                                                                 onClick={handleRating}
                                                                 initialValue={5}
-                                                                size={15}/>
+                                                                size={20}/>
                                                             </div>
                                                         </div>
                                                         <div className="product-card__rating-legend">9 Reviews</div>
                                                     </div>
-                                                    <ul className="product-card__features-list">
+                                                    {/* <ul className="product-card__features-list">
                                                         <li>Speed: 750 RPM</li>
                                                         <li>Power Source: Cordless-Electric</li>
                                                         <li>Battery Cell Type: Lithium</li>
                                                         <li>Voltage: 20 Volts</li>
                                                         <li>Battery Capacity: 2 Ah</li>
-                                                    </ul>
+                                                    </ul> */}
                                                 </div>
                                                 <div className="product-card__actions">
-                                                    <div className="product-card__availability">Availability: <span
-                                                            className="text-success">In Stock</span></div>
+                                                <div className="product-card__prices">Gaming</div>
                                                     <div className="product-card__prices">$749.00</div>
                                                     <div className="product-card__buttons"><button
                                                             className="btn btn-primary product-card__addtocart"
@@ -106,7 +62,7 @@ export default function ProductList(){
                                                 </div>
                                             </div>
                                         </div>
-                                        {/* <div className="products-list__item">
+                                        <div className="products-list__item">
                                             <div className="product-card"><button className="product-card__quickview"
                                                     type="button"><svg width="16px" height="16px">
                                                         <use xlink:href="images/sprite.svg#quickview-16"></use>
@@ -562,7 +518,7 @@ export default function ProductList(){
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="products-list__item">
+                                        {/* <div className="products-list__item">
                                             <div className="product-card"><button className="product-card__quickview"
                                                     type="button"><svg width="16px" height="16px">
                                                         <use xlink:href="images/sprite.svg#quickview-16"></use>
