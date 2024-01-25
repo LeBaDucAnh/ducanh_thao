@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql', 
         'NAME': 'web_toy_new',
         'USER': 'root',
-        'PASSWORD': 'thaokaka-304',
+        'PASSWORD': 'ducanh501',
         'HOST': 'localhost',
         'PORT': '3306',
     }
