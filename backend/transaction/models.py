@@ -1,5 +1,4 @@
 from django.db import models
-# from bookstore.const import TRANS_STATUS
 from user.models import User
 from order.models import Order
 

@@ -1,12 +1,10 @@
 from django.db import models
-from transaction.models import Transaction
 from product.models import Product
 
 # Create your models here.
 class Order(models.Model):
     id = models.AutoField(primary_key=True)
     products = models.ManyToManyField(Product, through='OrderItem')
-    transaction_id = models.ForeignKey(Transaction, on_delete=models.CASCADE, blank=True)
     quantity = models.IntegerField(blank=True)
     price = models.FloatField(blank=True)
     sale_price = models.FloatField(blank=True)
