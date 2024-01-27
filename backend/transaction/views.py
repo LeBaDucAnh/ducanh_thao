@@ -20,3 +20,7 @@ class TransactionListCreateView(generics.ListCreateAPIView):
                         phone_number=user.phone,
                         email=user.email,
                         address=user.address)
+        
+class TransactionRetrieveView(generics.RetrieveAPIView):
+    queryset = Transaction.objects.all()
+    serializer_class = TransactionSerializer
