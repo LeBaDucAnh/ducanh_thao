@@ -17,7 +17,7 @@ class Order(models.Model):
 
 class OrderItem(models.Model):
     id = models.AutoField(primary_key=True)
-    order_id = models.ForeignKey(Order, on_delete=models.CASCADE, blank=True, related_name='order_detail')
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, blank=True, related_name='order_detail')
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
     quantity = models.IntegerField(blank=True)
     sub_price = models.FloatField(blank=True)
