@@ -4462,7 +4462,7 @@ screen and (-ms-high-contrast:active) {
 }
 
 .nav-links__item>a svg {
-    fill: rgba(0, 0, 0, .3)
+    fill: rgba(245, 155, 29, 0.3)
 }
 
 .nav-links__item>a>span {
@@ -4482,12 +4482,12 @@ screen and (-ms-high-contrast:active) {
 }
 
 .nav-links__item:hover>a span {
-    background: hsl(27, 87%, 47%);
+    background: hsl(0, 0%, 9%);
     box-shadow: none
 }
 
 .nav-links__item:hover>a svg {
-    fill: rgba(0, 0, 0, 0.3)
+    fill: rgba(249, 109, 15, 0.795)
 }
 
 .nav-links__item:hover>a>span {
@@ -4571,7 +4571,7 @@ screen and (-ms-high-contrast:active) {
 
 .nav-panel {
     height: 54px;
-    background: #333;
+    background: #010101;
     box-shadow: 0 1px rgba(0, 0, 0, .04), inset 0 -1px rgba(0, 0, 0, .04);
     color: #fff;
 }

@@ -1,62 +1,29 @@
-import React from 'react'
+import {React, useState, useEffect} from 'react'
 import { ShoppingCartOutlined, SearchOutlined, MenuOutlined, CloseOutlined, CaretDownOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 import MobileMenu from './MenuMobile'
 import HeaderMenu from './MobileHeader'
+import { BASE_URL } from '../../config'
+import axios from 'axios';
 
 function Header() {
+  const [catList, setCatList] = useState([]);
+
+  useEffect(() => {
+    axios.get(BASE_URL +'/api/categories/').then(res => {
+      setCatList(res.data);
+    })
+    .catch(error => {
+      console.error('Error fetching categories statistics', error);
+    });
+  }, []);
+
+  console.log("categories: ", catList);
+
+  
+
   return (
     <div>
-      {/* <div className="mobilemenu">
-        <div className="mobilemenu__backdrop"></div>
-        <div className="mobilemenu__body">
-            <div className="mobilemenu__header">
-                <div className="mobilemenu__title">Menu</div>
-                <button type="button" className="mobilemenu__close">
-                <CloseOutlined />
-                </button>
-            </div>
-            <div className="mobilemenu__content">
-                <ul className="mobile-links mobile-links--level--0" data-collapse
-                    data-collapse-opened-class="mobile-links__item--open">
-                    <li className="mobile-links__item" data-collapse-item>
-                        <div className="mobile-links__item-title">
-                            <a href="index.html" className="mobile-links__item-link">Danh mục</a> <button
-                                className="mobile-links__item-toggle" type="button" data-collapse-trigger>
-                                  <CaretDownOutlined />
-                                </button>
-                        </div>
-                        <div className="mobile-links__item-sub-links" data-collapse-content>
-                            <ul className="mobile-links mobile-links--level--1">
-                                <li className="mobile-links__item" data-collapse-item>
-                                    <div className="mobile-links__item-title"><a href="index.html"
-                                            className="mobile-links__item-link">Home 1</a></div>
-                                </li>
-                                <li className="mobile-links__item" data-collapse-item>
-                                    <div className="mobile-links__item-title"><a href="index-2.html"
-                                            className="mobile-links__item-link">Home 2</a></div>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li className="mobile-links__item" data-collapse-item>
-                    
-                        <div className="mobile-links__item-title"><Link to="/products" href="#" className="mobile-links__item-link">Sản phẩm</Link>
-                            <button className="mobile-links__item-toggle" type="button" data-collapse-trigger>
-                                </button>
-                        </div>
-                    </li>
-                    <li className="mobile-links__item" data-collapse-item>
-                        <div className="mobile-links__item-title"><a href="shop-grid-3-columns-sidebar.html"
-                                className="mobile-links__item-link">Liên hệ</a> <button className="mobile-links__item-toggle"
-                                type="button" data-collapse-trigger>
-                                </button></div>
-                        
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div> */}
     <MobileMenu/>
       <HeaderMenu/>
       <header className="site__header d-lg-block d-none">
@@ -102,38 +69,9 @@ function Header() {
                         </span></a>
                         <div className="nav-links__menu">
                           <ul className="menu menu--layout--classic">
-                            <li><a href="shop-grid-3-columns-sidebar.html">Shop Grid 
-                            </a>
-                              <div className="menu__submenu">
-                                <ul className="menu menu--layout--classic">
-                                  <li><a href="shop-grid-3-columns-sidebar.html">3 Columns
-                                    Sidebar</a></li>
-                                  <li><a href="shop-grid-4-columns-full.html">4 Columns
-                                    Full</a></li>
-                                  <li><a href="shop-grid-5-columns-full.html">5 Columns
-                                    Full</a></li>
-                                </ul>
-                              </div>
-                            </li>
-                            <li><a href="shop-list.html">Shop List</a></li>
-                            <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
-                            <li><a href="product.html">Product 
-                            </a>
-                              <div className="menu__submenu">
-                                <ul className="menu menu--layout--classic">
-                                  <li><a href="product.html">Product</a></li>
-                                  <li><a href="product-alt.html">Product Alt</a></li>
-                                  <li><a href="product-sidebar.html">Product Sidebar</a>
-                                  </li>
-                                </ul>
-                              </div>
-                            </li>
-                            <li><a href="cart.html">Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
-                            <li><a href="wishlist.html">Wishlist</a></li>
-                            <li><a href="compare.html">Compare</a></li>
-                            <li><a href="account.html">My Account</a></li>
-                            <li><a href="track-order.html">Track Order</a></li>
+                            {catList.map(cat =>
+                              <li><a href="#l">{cat.name}</a></li>                            
+                            )}
                           </ul>
                         </div>
                       </li>

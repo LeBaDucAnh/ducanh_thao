@@ -6,8 +6,8 @@ import 'slick-carousel/slick/slick-theme.css';
 function Slideshow() {
     const banners = [
         // Đối với mỗi banner, bạn có thể thêm hình ảnh và nội dung tùy chỉnh
-        { id: 1, image: '../images/banners/banner-1.jpg', content: 'Nội dung banner 1' },
-        { id: 2, image: 'url_to_image_2.jpg', content: 'Nội dung banner 2' },
+        { id: 1, image: '../images/hpny.jpg', content: '' },
+        { id: 2, image: '../images/durex.jpg', content: '' },
         // Thêm các banner khác nếu cần
     ];
 

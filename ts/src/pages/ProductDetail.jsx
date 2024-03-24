@@ -160,7 +160,7 @@ export default function ProductDetail() {
                                             <div className="spec__value">Li-lon</div>
                                         </div>
                                         <div className="spec__row">
-                                            <div className="spec__name">Bảo hàng</div>
+                                            <div className="spec__name">Bảo hành</div>
                                             <div className="spec__value">2 <span>tháng</span></div>
                                         </div>
                                         <div className="spec__row">
